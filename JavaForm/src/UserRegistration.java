@@ -3,6 +3,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
@@ -38,6 +39,17 @@ public class UserRegistration {
         });
 
         submitButton.addActionListener(ae -> {
+            try{
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection con= DriverManager.getConnection(
+                        "jdbc:mysql://localhost:3306/demo?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC","root","root");
+                Statement stmt =con.createStatement();
+                String myuser = username.getText();
+                String mypass =  password.getText();
+                stmt.executeUpdate("INSERT INTO users (username, password,created_at) VALUES ('"+myuser+"','"+mypass+"',NULL);");
+                con.close();
+            }catch(Exception e){ System.out.println(e);}
+
             infoBox("User: "+username.getText()+" added to databse","User registered");
             username.setText("");
             password.setText("");

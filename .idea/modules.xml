@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/JavaFormToPHPLogin.iml" filepath="$PROJECT_DIR$/.idea/JavaFormToPHPLogin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaForm/JavaForm.iml" filepath="$PROJECT_DIR$/JavaForm/JavaForm.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaFormToPHPLogin.iml" filepath="$PROJECT_DIR$/JavaFormToPHPLogin.iml" />
     </modules>
   </component>

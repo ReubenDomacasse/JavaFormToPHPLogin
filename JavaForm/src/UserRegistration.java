@@ -3,11 +3,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
 public class UserRegistration {
@@ -30,17 +26,21 @@ public class UserRegistration {
         JPanel controls = new JPanel(new FlowLayout(FlowLayout.CENTER, 5, 2));
 
         JButton resetButton = new JButton("Reset");
-        JButton submitButton = new JButton("Submit");
+        JButton submitButton = new JButton("Register");
 
         controls.add(resetButton);
         controls.add(submitButton);
 
-        resetButton.addActionListener(ae -> {
 
+        resetButton.addActionListener(ae -> {
+            username.setText("");
+            password.setText("");
         });
 
         submitButton.addActionListener(ae -> {
-
+            infoBox("User: "+username.getText()+" added to databse","User registered");
+            username.setText("");
+            password.setText("");
         });
 
         JPanel gui = new JPanel(new BorderLayout(10, 10));
@@ -55,5 +55,10 @@ public class UserRegistration {
         f.setLocationByPlatform(true);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true);
+    }
+
+    private static void infoBox(String infoMessage, String titleBar)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
 }
